@@ -1,0 +1,1 @@
+export const GAME_SETTINGS = { TICK_RATE: 30 };
