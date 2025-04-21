@@ -1,0 +1,1 @@
+// Placeholder game_state.js using shared/constants

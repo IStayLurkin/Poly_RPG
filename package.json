@@ -1,21 +1,16 @@
 {
-  "name": "multiplayer-poly-game-server",
+  "name": "poly-rpg",
   "version": "1.0.0",
-  "description": "Server for the Multiplayer Poly Style Game",
-  "main": "server.js",
+  "main": "server/server.js",
+  "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/server.js"
   },
-  "author": "FlowAI",
-  "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "pg": "^8.10.0",
+    "socket.io": "^4.7.2",
     "uuid": "^9.0.0",
-    "ws": "^8.13.0"
-  },
-  "devDependencies": {
-    "jest": "^29.7.0",
-    "supertest": "^7.1.0"
+    "node-fetch": "^2.6.7"
   }
 }

@@ -1,0 +1,1 @@
+// status.js using shared constants

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multiplayer Shooter Game</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- ✅ Load THREE.js globally -->
+  <script src="https://unpkg.com/three@0.152.2/build/three.min.js"></script>
+</head>
+<body>
+  <canvas id="game-canvas"></canvas>
+
+  <!-- Menu Container -->
+  <div id="menu-container">
+    <div id="main-menu">
+      <h1>Game Title</h1>
+      <div id="name-input-container">
+        <label for="player-name-input">Enter Your Name:</label><br />
+        <input type="text" id="player-name-input" maxlength="16" />
+      </div>
+      <button id="start-button" class="menu-button">Start Game</button>
+      <button id="settings-button" class="menu-button">Settings</button>
+    </div>
+
+    <div id="settings-panel" class="hidden">
+      <h2>Settings</h2>
+      <div class="setting-group">
+        <label>Graphics Quality</label>
+        <div class="preset-buttons">
+          <button id="graphics-low">Low</button>
+          <button id="graphics-medium">Medium</button>
+          <button id="graphics-high">High</button>
+        </div>
+      </div>
+      <div class="setting-group">
+        <label>Audio Quality</label>
+        <div class="preset-buttons">
+          <button id="audio-low">Low</button>
+          <button id="audio-medium">Medium</button>
+          <button id="audio-high">High</button>
+        </div>
+      </div>
+      <button id="settings-back-button" class="menu-button red-button">Back</button>
+      <button id="save-name-button" class="menu-button small-button">Save Name</button>
+    </div>
+  </div>
+
+  <!-- Game UI Container -->
+  <div id="game-ui-container" class="hidden">
+    <div id="status-overlay">
+      <div>Status: <span id="connection-status" class="disconnected">Disconnected</span></div>
+      <div>Players: <span id="player-count">0</span></div>
+      <div>Latency: <span id="latency">N/A</span> ms</div>
+    </div>
+
+    <div id="hud" class="hidden">
+      <div class="hud-item">
+        <span class="hud-label">HP</span>
+        <div class="health-bar-container">
+          <div id="health-bar" style="width: 100%"></div>
+        </div>
+        <span id="health-text">100 / 100</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">Score</span>
+        <span id="score-value">0</span>
+      </div>
+      <div id="weapon-hud" class="hud-item">
+        Weapon: <span id="weapon-value">Default</span>
+      </div>
+    </div>
+
+    <div id="respawn-overlay" class="hidden">
+      <h2>You Died!</h2>
+      <p>Killed by: <span id="killer-info">Unknown</span></p>
+      <p>Respawning soon...</p>
+    </div>
+
+    <div id="chat-container">
+      <div id="chat-output"></div>
+      <input type="text" id="chat-input" placeholder="Type message and press Enter..." />
+    </div>
+  </div>
+
+  <!-- ✅ Game Scripts -->
+  <script type="module">
+    import { GameClient } from './js/main.js';
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const game = new GameClient();
+    });
+  </script>
+</body>
+</html>
